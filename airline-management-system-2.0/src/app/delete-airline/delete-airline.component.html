@@ -1,0 +1,61 @@
+<div class="container container-fluid">
+	<div class="panel-group">
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h1 style="text-align: center">Delete Flight</h1>
+			</div>
+			<div class="panel-body"></div>
+		</div>
+	</div>
+	<br />
+	<form [formGroup]="form" (ngSubmit)="submit()">
+		<div class="form-group row text-center">
+			<label for="providerCode" class="col-sm-5 col-form-label"
+        >Provider Code</label>
+			<div class="col-sm-5">
+				<select
+          formControlName="providerCode"
+          class="form-control"
+          (change)="checkProviderExistance($event)"
+        >
+          <option [ngValue]="null" disabled>Choose provider Code</option>
+          <option *ngFor="let airline of myAirlinesInfo"
+            >{{airline.code}}</option
+          >
+        </select>
+			</div>
+			<div *ngIf="f.providerCode.touched && f.providerCode.invalid" class="alert alert-danger">
+				<div *ngIf="f.providerCode.errors.required">
+					Provider Code is required.
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group row text-center">
+			<label for="providerType" class="col-sm-5 col-form-label"
+        >Provider Type</label>
+			<div class="col-sm-5">
+				<select formControlName="providerType" class="form-control">
+          <option [ngValue]="null" disabled>Choose provider type</option>
+          <option *ngFor="let type of providerType" [value]="type"
+            >{{type}}</option
+          >
+        </select>
+			</div>
+			<div *ngIf="f.providerType.touched && f.providerType.invalid" class="alert alert-danger">
+				<div *ngIf="f.providerType.errors.required">
+					Provider Type is required.
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-10">
+			<button
+        class="btn btn-primary btn-space"
+        type="submit"
+        [disabled]="!form.valid"
+      >
+        Delete Flight
+      </button>
+		</div>
+	</form>
+</div>

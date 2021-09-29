@@ -1,0 +1,48 @@
+<div class="panel-group">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <div class="panel-body">
+        <h2 style="text-align: center" class="panel-info">
+          View Airline Providers Info
+        </h2>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+
+  <div class="container table-responsive">
+    <div class="row align-items-start panel-success">
+      <label for="providerType" class="col-sm-6 col-form-label">
+        Filter By Provider Type
+      </label>
+      <div class="col-sm-5">
+        <input
+          type="text"
+          [(ngModel)]="searchText"
+          placeholder="Enter Provider Type to search"
+          class="form-control"
+        />
+      </div>
+      <br />
+      <br />
+      <table class="table table-bordered table-hover display  pb-90">
+        <thead>
+          <tr class="table-active">
+            <th>Provider Code</th>
+            <th>Provider Name</th>
+            <th>Provider Type</th>
+          </tr>
+        </thead>
+
+        <tbody id="row">
+          <tr *ngFor="let airline of airlines| filter : searchText">
+            <td>{{airline.providerCode}}</td>
+            <td>{{airline.providerName}}</td>
+            <td>{{airline.providerType}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

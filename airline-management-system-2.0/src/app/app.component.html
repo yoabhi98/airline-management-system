@@ -1,0 +1,21 @@
+<div class="panel-group">
+	<div class="panel panel-success">
+		<div class="panel-heading">
+			<h1 style="text-align: center">Airline Management System</h1>
+		</div>
+		<div class="panel-body">
+			<a routerLinkActive="is-active" routerLink="/create" [routerLinkActiveOptions]="{exact:
+true}" class="btn-lg active" aria-pressed="true">
+				Create Flight</a>
+			<a routerLinkActive="is-active" routerLink="/modify" [routerLinkActiveOptions]="{exact:
+true}" class="btn-lg active" aria-pressed="true">Modify Flight</a>
+			<a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+true}" routerLink="/delete" class="btn-lg active" aria-pressed="true">Delete Flight</a>
+			<a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+true}" routerLink="/view" class="btn-lg active" aria-pressed="true">View Flight</a>
+		</div>
+	</div>
+</div>
+<br />
+<br />
+<router-outlet></router-outlet>
